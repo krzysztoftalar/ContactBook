@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CBDesktop")]
+[assembly: AssemblyTitle("CBDesktopUI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CBDesktop")]
+[assembly: AssemblyProduct("CBDesktopUI")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("14d22224-9ff4-4bfa-9b2c-18a8a1e46e8a")]
+[assembly: Guid("2576a70b-9cfc-4b2b-be0d-e87be35c22c2")]
 
 // Version information for an assembly consists of the following four values:
 //
