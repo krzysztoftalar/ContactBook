@@ -4,7 +4,7 @@ namespace CBDesktopUI.Library.Models
 {
     public class TypesList
     {
-        public IEnumerable<PhoneTypeDbModel> PhoneTypes { get; set; }
-        public IEnumerable<AddressTypeDbModel> AdressesTypes { get; set; }
+        public List<PhoneTypeDbModel> PhoneTypes { get; set; }
+        public List<AddressTypeDbModel> AdressesTypes { get; set; }
     }
 }

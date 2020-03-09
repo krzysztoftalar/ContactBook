@@ -1,5 +1,4 @@
-﻿using CBDesktopUI.Library.DataAccess;
-using CBDesktopUI.Library.Models;
+﻿using CBDesktopUI.DataAccess;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,80 +7,76 @@ namespace CBDesktopUI
 {
     public partial class MainWindow : Form
     {
-        ComboBoxData formData = new ComboBoxData();
-        PersonModel detailsList = new PersonModel();
-        TypesList types;
-        PhoneDbModel phone;
-        AdressDbModel address;
+        Person person = new Person();
 
         public MainWindow()
         {
             InitializeComponent();
+            ShowData();
 
-            types = formData.LoadForm();
+            person.OperationApprovedEvent += Person_OperationApprovedEvent;
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void Person_OperationApprovedEvent(object sender, EventArgs e)
         {
-            var person = new PersonDbModel
+            ShowData();
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            MainPanel main = new MainPanel(person)
             {
-                FirstName = firstName.Text,
-                LastName = lastName.Text,
-                EmailAddress = emailAddress.Text,
-                Description = description.Text
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true,
+                FormBorderStyle = FormBorderStyle.None
             };
 
-            PersonData personData = new PersonData();
-
-            //zabezpieczyć!
-            personData.SavePerson(person, detailsList);
+            contentPanel.Controls.Add(main);
+            main.Show();
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
+        private void ShowContacts_Click(object sender, EventArgs e)
         {
-            mainPanel.Enabled = true;
-
-            phoneTypes.DataSource = types.PhoneTypes.Select(x => x.Name).ToList();
-            addressesTypes.DataSource = types.AdressesTypes.Select(x => x.Name).ToList();
+            contactList.Visible = true;
         }
 
-        private void AddNewAddress_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
-            address = new AdressDbModel
-            {
-                AddressTypeID = types.AdressesTypes.FirstOrDefault(x => x.Name == addressesTypes.Text).Id,
-                HomeNumber = homeNumber.Text,
-                Street = street.Text,
-                City = city.Text,
-                Country = country.Text
-            };
+            int.TryParse(ContactId, out int id);
 
-
-            if (city.Text.Length > 0)
-            {
-                detailsList.Addresses.Add(address);
-            }
-
-            homeNumber.Text = "";
-            street.Text = "";
-            city.Text = "";
-            country.Text = "";
+            person.DeleteContact(id);
         }
 
-        private void AddNewPhone_Click(object sender, EventArgs e)
+        private void ShowData()
         {
-            phone = new PhoneDbModel
-            {
-                PhoneNumberTypeID = types.PhoneTypes.FirstOrDefault(x => x.Name == phoneTypes.Text).Id,
-                PhoneNumber = phoneNumber.Text
-            };
+            contactList.DataSource = null;
 
-            if (phoneNumber.Text.Length > 0)
-            {
-                detailsList.Phones.Add(phone);
-            }
+            var personData = person.GetContacts();
 
-            phoneNumber.Text = "";
+            var contactListSource = from p in personData
+                                    select new
+                                    {
+                                        Name = $"{p.FirstName} {p.LastName}",
+                                        Id = p.Id
+                                    };
+
+            contactList.DataSource = contactListSource.ToList();
+            contactList.DisplayMember = "Name";
+            contactList.ValueMember = "Id";
+        }
+
+        private string _contactId;
+
+        public string ContactId
+        {
+            get => _contactId;
+            set { _contactId = value; }
+        }
+
+        private void contactList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ContactId = contactList.GetItemText(contactList.SelectedValue);
         }
     }
 }

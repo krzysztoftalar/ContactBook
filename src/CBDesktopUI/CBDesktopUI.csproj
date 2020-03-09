@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2576A70B-9CFC-4B2B-BE0D-E87BE35C22C2}</ProjectGuid>
+    <ProjectGuid>{41E8C101-6A4B-468A-AAB2-50894B91FC8A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CBDesktopUI</RootNamespace>
     <AssemblyName>CBDesktopUI</AssemblyName>
@@ -90,6 +90,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\Person.cs" />
+    <Compile Include="DataAccess\ComboBox.cs" />
+    <Compile Include="MainPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPanel.Designer.cs">
+      <DependentUpon>MainPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,26 +106,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainPanel.resx">
+      <DependentUpon>MainPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\CBDesktopUI.Library.Models.Person.datasource" />
-    <None Include="Properties\DataSources\CBDesktopUI.Library.Models.PhoneDbModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -128,22 +137,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\createIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\addIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\deleteIcon.png" />
+    <None Include="Resources\createIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\saveIcon.png" />
+    <None Include="Resources\deleteIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CBDesktopUI.Library\CBDesktopUI.Library.csproj">
       <Project>{0b279589-4555-4f5d-bf09-8649b14c6781}</Project>
       <Name>CBDesktopUI.Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

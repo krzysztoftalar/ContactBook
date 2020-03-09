@@ -9,6 +9,6 @@ AS
 begin
 	set nocount on;
 
-	insert into dbo.Address(AddressTypeID, PersonID, HomeNumber, Street, City, Country)
+	insert into dbo.[Address](AddressTypeID, PersonID, HomeNumber, Street, City, Country)
 	values(@AddressTypeID, @PersonID, @HomeNumber, @Street, @City, @Country);
 end

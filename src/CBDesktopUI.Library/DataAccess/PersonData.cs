@@ -1,5 +1,6 @@
 ﻿using CBDesktopUI.Library.Internal.DataAccess;
 using CBDesktopUI.Library.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CBDesktopUI.Library.DataAccess
@@ -32,6 +33,37 @@ namespace CBDesktopUI.Library.DataAccess
 
                         sql.SaveDataInTransaction("dbo.spAddress_Insert", item);
                     }
+
+                    sql.CommitTransaction();
+                }
+                catch
+                {
+                    sql.RollbackTransaction();
+                    throw;
+                }
+            }
+        }
+
+        public List<PersonDbModel> GetContacts()
+        {
+            var sql = new SqlDataAccess();
+
+            var output = sql.LoadData<PersonDbModel, dynamic>("spPerson_GetAll", new { });
+
+            return output;
+        }
+
+        public void DeletePerson(int id)
+        {
+            using (var sql = new SqlDataAccess())
+            {
+                try
+                {
+                    sql.StartTransaction();
+
+                    sql.SaveDataInTransaction("dbo.spAddress_Delete", new { Id = id });
+                    sql.SaveDataInTransaction("dbo.spPhone_Delete", new { Id = id });
+                    sql.SaveDataInTransaction("dbo.spPerson_Delete", new { Id = id });
 
                     sql.CommitTransaction();
                 }

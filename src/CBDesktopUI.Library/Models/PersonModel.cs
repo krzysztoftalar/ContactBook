@@ -4,7 +4,13 @@ namespace CBDesktopUI.Library.Models
 {
     public class PersonModel
     {
-        public List<PhoneDbModel> Phones { get; set; } = new List<PhoneDbModel>();
-        public List<AdressDbModel> Addresses { get; set; } = new List<AdressDbModel>();
+        public PersonModel()
+        {
+            Phones = new List<PhoneDbModel>();
+            Addresses = new List<AdressDbModel>();
+        }
+
+        public List<PhoneDbModel> Phones { get; set; }
+        public List<AdressDbModel> Addresses { get; set; }
     }
 }

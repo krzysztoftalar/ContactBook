@@ -7,7 +7,7 @@ namespace CBDesktopUI.Library.DataAccess
     {
         public TypesList TypesList { get; set; }
 
-        public TypesList LoadForm()
+        public TypesList LoadComboBox()
         {
             using (var sql = new SqlDataAccess())
             {
