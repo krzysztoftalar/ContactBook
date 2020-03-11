@@ -2,15 +2,15 @@
 
 namespace CBDesktopUI.Library.Models
 {
-    public class PersonModel
+    public class PersonDetailModel
     {
-        public PersonModel()
+        public PersonDetailModel()
         {
             Phones = new List<PhoneDbModel>();
-            Addresses = new List<AdressDbModel>();
+            Addresses = new List<AddressDbModel>();
         }
 
         public List<PhoneDbModel> Phones { get; set; }
-        public List<AdressDbModel> Addresses { get; set; }
+        public List<AddressDbModel> Addresses { get; set; }
     }
 }

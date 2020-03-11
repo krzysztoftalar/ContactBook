@@ -1,13 +1,15 @@
 ﻿using CBDesktopUI.Library.Internal.DataAccess;
 using CBDesktopUI.Library.Models;
+using System.Collections.Generic;
 
 namespace CBDesktopUI.Library.DataAccess
 {
-    public class ComboBoxData
+    public class ComboBoxData : IComboBoxData
     {
-        public TypesList TypesList { get; set; }
+        public List<PhoneTypeDbModel> PhoneType { get; set; }
+        public List<AddressTypeDbModel> AddressType { get; set; }
 
-        public TypesList LoadComboBox()
+        public (List<PhoneTypeDbModel>, List<AddressTypeDbModel>) LoadComboBox()
         {
             using (var sql = new SqlDataAccess())
             {
@@ -15,14 +17,11 @@ namespace CBDesktopUI.Library.DataAccess
                 {
                     sql.StartTransaction();
 
-                    TypesList = new TypesList
-                    {
-                        PhoneTypes = sql.LoadDataInTransaction<PhoneTypeDbModel, dynamic>("spPhoneNumberType_GetAll",
-                        new { }),
+                    PhoneType = sql.LoadDataInTransaction<PhoneTypeDbModel, dynamic>("spPhoneNumberType_GetAll",
+                       new { });
 
-                        AdressesTypes = sql.LoadDataInTransaction<AddressTypeDbModel, dynamic>("spAddressType_GetAll",
-                        new { })
-                    };
+                    AddressType = sql.LoadDataInTransaction<AddressTypeDbModel, dynamic>("spAddressType_GetAll",
+                      new { });
 
                     sql.CommitTransaction();
                 }
@@ -33,7 +32,7 @@ namespace CBDesktopUI.Library.DataAccess
                 }
             }
 
-            return TypesList;
+            return (PhoneType, AddressType);
         }
     }
 }

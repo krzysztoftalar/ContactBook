@@ -11,5 +11,6 @@ begin
 	insert into dbo.Person(FirstName, LastName, EmailAddress, [Description])
 	values(@FirstName, @LastName, @EmailAddress, @Description);
 
-	select @Id = SCOPE_IDENTITY();
+	set @Id = SCOPE_IDENTITY();
+	select @Id;
 end

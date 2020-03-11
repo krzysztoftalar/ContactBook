@@ -1,13 +1,12 @@
 ﻿using CBDesktopUI.Library.Internal.DataAccess;
 using CBDesktopUI.Library.Models;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CBDesktopUI.Library.DataAccess
 {
-    public class PersonData
+    public class PersonData : IPersonData
     {
-        public void SavePerson(PersonDbModel person, PersonModel personModel)
+        public void SaveContact(PersonDbModel person, PersonDetailModel personModel)
         {
             using (var sql = new SqlDataAccess())
             {
@@ -15,10 +14,9 @@ namespace CBDesktopUI.Library.DataAccess
                 {
                     sql.StartTransaction();
 
-                    sql.SaveDataInTransaction("dbo.spPerson_Insert", person);
+                    var Id = sql.SaveDataInTransaction("dbo.spPerson_Insert", person);
 
-                    person.Id = sql.LoadDataInTransaction<int, dynamic>("dbo.spPerson_Lookup",
-                       new { EmailAddress = person.EmailAddress }).FirstOrDefault();
+                    person.Id = (int)Id;
 
                     foreach (var item in personModel.Phones)
                     {
@@ -53,7 +51,7 @@ namespace CBDesktopUI.Library.DataAccess
             return output;
         }
 
-        public void DeletePerson(int id)
+        public void DeleteContact(int id)
         {
             using (var sql = new SqlDataAccess())
             {

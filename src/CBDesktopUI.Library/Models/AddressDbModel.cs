@@ -1,6 +1,6 @@
 ﻿namespace CBDesktopUI.Library.Models
 {
-    public class AdressDbModel
+    public class AddressDbModel
     {
         public int PersonID { get; set; }
         public int AddressTypeID { get; set; }

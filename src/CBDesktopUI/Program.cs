@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CBDesktopUI.Library.DataAccess;
+using CBDesktopUI.Presenter;
+using CBDesktopUI.ViewAbstraction;
+using System;
 using System.Windows.Forms;
 
 namespace CBDesktopUI
@@ -13,7 +16,13 @@ namespace CBDesktopUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+
+            IMainView mainView = new MainForm();
+            IPersonData personData = new PersonData();
+            IComboBoxData boxData = new ComboBoxData();
+
+            var mainPresenter = new MainPresenter(mainView, personData, boxData);
+            mainPresenter.ShowView();
         }
     }
 }

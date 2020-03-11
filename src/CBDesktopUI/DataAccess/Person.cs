@@ -12,7 +12,7 @@ namespace CBDesktopUI.DataAccess
 
         public Person()
         {
-            DetailsList = new PersonModel();
+            DetailsList = new PersonDetailModel();
         }
 
         private PersonDbModel _contact;
@@ -23,9 +23,9 @@ namespace CBDesktopUI.DataAccess
             set { _contact = value; }
         }
 
-        private PersonModel _detailsList;
+        private PersonDetailModel _detailsList;
 
-        public PersonModel DetailsList
+        public PersonDetailModel DetailsList
         {
             get => _detailsList;
             set { _detailsList = value; }
@@ -39,9 +39,9 @@ namespace CBDesktopUI.DataAccess
             set { _phone = value; }
         }
 
-        private AdressDbModel _address;
+        private AddressDbModel _address;
 
-        public AdressDbModel Address
+        public AddressDbModel Address
         {
             get => _address;
             set { _address = value; }
@@ -72,7 +72,7 @@ namespace CBDesktopUI.DataAccess
 
         public void AddAddress(int addressTypeId, string homeNumber, string street, string city, string country)
         {
-            Address = new AdressDbModel
+            Address = new AddressDbModel
             {
                 AddressTypeID = addressTypeId,
                 HomeNumber = homeNumber,
@@ -86,11 +86,11 @@ namespace CBDesktopUI.DataAccess
 
         public bool SaveContact()
         {
-            personData = new PersonData();
+            //personData = new PersonData();
 
-            personData.SavePerson(Contact, DetailsList);
+            //personData.SaveContact(Contact, DetailsList);
 
-            OperationApprovedEvent?.Invoke(this, EventArgs.Empty);
+            //OperationApprovedEvent?.Invoke(this, EventArgs.Empty);
 
             return true;
         }
@@ -102,7 +102,7 @@ namespace CBDesktopUI.DataAccess
 
         public void DeleteContact(int id)
         {
-            personData.DeletePerson(id);
+            //personData.DeletePerson(id);
 
             OperationApprovedEvent?.Invoke(this, EventArgs.Empty);
         }

@@ -1,6 +1,6 @@
 ﻿namespace CBDesktopUI
 {
-    partial class MainPanel
+    partial class ContactForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.emailAddress = new System.Windows.Forms.TextBox();
@@ -57,14 +56,12 @@
             this.street = new System.Windows.Forms.TextBox();
             this.city = new System.Windows.Forms.TextBox();
             this.country = new System.Windows.Forms.TextBox();
-            this.errorValidation = new System.Windows.Forms.ErrorProvider(this.components);
             this.AddNewAddress = new System.Windows.Forms.Button();
             this.AddNewPhone = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorValidation)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -116,7 +113,6 @@
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(515, 30);
             this.lastName.TabIndex = 5;
-            this.lastName.Validating += new System.ComponentModel.CancelEventHandler(this.firstName_Validating);
             // 
             // label2
             // 
@@ -165,7 +161,6 @@
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(515, 30);
             this.firstName.TabIndex = 4;
-            this.firstName.Validating += new System.ComponentModel.CancelEventHandler(this.firstName_Validating);
             // 
             // description
             // 
@@ -370,10 +365,6 @@
             this.country.Size = new System.Drawing.Size(515, 30);
             this.country.TabIndex = 11;
             // 
-            // errorValidation
-            // 
-            this.errorValidation.ContainerControl = this;
-            // 
             // AddNewAddress
             // 
             this.AddNewAddress.BackColor = System.Drawing.Color.Green;
@@ -410,11 +401,11 @@
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // MainPanel
+            // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 803);
+            this.ClientSize = new System.Drawing.Size(755, 803);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.AddNewAddress);
             this.Controls.Add(this.label9);
@@ -424,15 +415,16 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
-            this.Name = "MainPanel";
-            this.Text = "MainPanel";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "ContactForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Contact Form";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorValidation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,6 +463,5 @@
         private System.Windows.Forms.TextBox street;
         private System.Windows.Forms.TextBox city;
         private System.Windows.Forms.TextBox country;
-        private System.Windows.Forms.ErrorProvider errorValidation;
     }
 }

@@ -55,9 +55,9 @@ namespace CBDesktopUI.Library.Internal.DataAccess
             return rows;
         }
 
-        public void SaveDataInTransaction<T>(string storedProcedure, T parameters)
+        public object SaveDataInTransaction<T>(string storedProcedure, T parameters)
         {
-            _connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure,
+            return _connection.ExecuteScalar(storedProcedure, parameters, commandType: CommandType.StoredProcedure,
                 transaction: _transaction);
         }
 
