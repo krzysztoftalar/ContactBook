@@ -5,8 +5,10 @@ namespace CBDesktopUI.Library.DataAccess
 {
     public interface IPersonData
     {
+        void SaveContact(PersonDbModel person, PersonDetailModel personModel);
+        void EditContact(PersonDbModel person, PersonDetailModel personModel);
         void DeleteContact(int id);
         List<PersonDbModel> GetContacts();
-        void SaveContact(PersonDbModel person, PersonDetailModel personModel);
+        (PersonDbModel, List<PhoneDbModel>, List<AddressDbModel>) GetContactById(int id);
     }
 }

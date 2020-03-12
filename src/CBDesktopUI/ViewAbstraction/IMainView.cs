@@ -7,6 +7,8 @@ namespace CBDesktopUI.ViewAbstraction
     public interface IMainView : IBaseView
     {
         Action<IContactView> Contact { get; set; }
+        Action<IContactView, string> EditContact { get; set; }
+
         event EventHandler DeleteContact;
         event EventHandler SelectedContact;
 

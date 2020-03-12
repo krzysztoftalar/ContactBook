@@ -9,7 +9,15 @@ namespace CBDesktopUI
 {
     public partial class ContactForm : Form, IContactView
     {
-        public PersonDetailModel ContactDetails { get; set; }
+        public event EventHandler CreateContact;
+        public event EventHandler EditContact;
+        public event EventHandler AddPhone;
+        public event EventHandler AddAddress;
+        public event EventHandler PhoneTypeSelected;
+        public event EventHandler AddressTypeSelected;
+        public event EventHandler EditPhone;
+        public event EventHandler EditAddress;
+
         public List<PhoneTypeDbModel> PhoneType
         {
             get => phonesTypes.DataSource as List<PhoneTypeDbModel>;
@@ -33,32 +41,45 @@ namespace CBDesktopUI
             }
         }
 
-        public event EventHandler CreateContact;
-
         public ContactForm()
         {
             InitializeComponent();
-
-            ContactDetails = new PersonDetailModel();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            CreateContact?.Invoke(sender, e);
+            if (ContactId <= 0)
+            {
+                CreateContact?.Invoke(sender, e);
+            }
+            else
+            {
+                EditContact?.Invoke(sender, e);
+            }
         }
 
         private void AddNewPhone_Click(object sender, EventArgs e)
         {
-            ContactDetails.Phones.Add(GetPhone());
-
-            ClearPhone();
+            if (ContactId <= 0)
+            {
+                AddPhone?.Invoke(sender, e);
+            }
+            else
+            {
+                EditPhone?.Invoke(sender, e);
+            }
         }
 
         private void AddNewAddress_Click(object sender, EventArgs e)
         {
-            ContactDetails.Addresses.Add(GetAddress());
-
-            ClearAddress();
+            if (ContactId <= 0)
+            {
+                AddAddress?.Invoke(sender, e);
+            }
+            else
+            {
+                EditAddress?.Invoke(sender, e);
+            }
         }
 
         public void OpenView()
@@ -66,53 +87,84 @@ namespace CBDesktopUI
             ShowDialog();
         }
 
-        public PersonDbModel GetContact()
+        public int ContactId { get; set; }
+
+        public string FirstName
         {
-            return new PersonDbModel
-            {
-                FirstName = firstName.Text,
-                LastName = lastName.Text,
-                EmailAddress = emailAddress.Text,
-                Description = description.Text
-            };
+            get => firstName.Text;
+            set { firstName.Text = value; }
         }
 
-        public PhoneDbModel GetPhone()
+        public string LastName
         {
-            int.TryParse(phonesTypes.SelectedValue.ToString(), out int id);
-
-            return new PhoneDbModel
-            {
-                PhoneNumberTypeID = id,
-                PhoneNumber = phoneNumber.Text
-            };
+            get => lastName.Text;
+            set { lastName.Text = value; }
         }
 
-        public AddressDbModel GetAddress()
+        public string EmailAddress
         {
-            int.TryParse(addressesTypes.SelectedValue.ToString(), out int id);
-
-            return new AddressDbModel
-            {
-                AddressTypeID = id,
-                HomeNumber = homeNumber.Text,
-                Street = street.Text,
-                City = city.Text,
-                Country = country.Text
-            };
+            get => emailAddress.Text;
+            set { emailAddress.Text = value; }
         }
 
-        public void ClearPhone()
+        public string Description
         {
-            phoneNumber.Text = string.Empty;
+            get => description.Text;
+            set { description.Text = value; }
         }
 
-        public void ClearAddress()
+        public int PhoneId { get; set; }
+
+        public int PhoneNumberTypeID
         {
-            homeNumber.Text = string.Empty;
-            street.Text = string.Empty;
-            city.Text = string.Empty;
-            country.Text = string.Empty;
+            get => int.Parse(phonesTypes.SelectedValue.ToString());
+        }
+
+        public string PhoneNumber
+        {
+            get => phoneNumber.Text;
+            set { phoneNumber.Text = value; }
+        }
+
+        public int AddressId { get; set; }
+
+        public int AddressTypeID
+        {
+            get => int.Parse(addressesTypes.SelectedValue.ToString());
+        }
+
+        public string HomeNumber
+        {
+            get => homeNumber.Text;
+            set { homeNumber.Text = value; }
+        }
+
+        public string Street
+        {
+            get => street.Text;
+            set { street.Text = value; }
+        }
+
+        public string City
+        {
+            get => city.Text;
+            set { city.Text = value; }
+        }
+
+        public string Country
+        {
+            get => country.Text;
+            set { country.Text = value; }
+        }
+
+        private void phonesTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PhoneTypeSelected?.Invoke(sender, e);
+        }
+
+        private void addressesTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddressTypeSelected?.Invoke(sender, e);
         }
     }
 }

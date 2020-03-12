@@ -117,107 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;mainPanel.Name" xml:space="preserve">
-    <value>mainPanel</value>
-  </data>
-  <data name="&gt;&gt;mainPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainPanel.Parent" xml:space="preserve">
-    <value>navBar</value>
-  </data>
-  <data name="&gt;&gt;mainPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>navBar</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;ShowContacts.Name" xml:space="preserve">
-    <value>ShowContacts</value>
-  </data>
-  <data name="&gt;&gt;ShowContacts.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ShowContacts.Parent" xml:space="preserve">
-    <value>navBar</value>
-  </data>
-  <data name="&gt;&gt;ShowContacts.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;DeleteButton.Name" xml:space="preserve">
-    <value>DeleteButton</value>
-  </data>
-  <data name="&gt;&gt;DeleteButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DeleteButton.Parent" xml:space="preserve">
-    <value>navBar</value>
-  </data>
-  <data name="&gt;&gt;DeleteButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;EditButton.Name" xml:space="preserve">
-    <value>EditButton</value>
-  </data>
-  <data name="&gt;&gt;EditButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EditButton.Parent" xml:space="preserve">
-    <value>navBar</value>
-  </data>
-  <data name="&gt;&gt;EditButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;AddButton.Name" xml:space="preserve">
-    <value>AddButton</value>
-  </data>
-  <data name="&gt;&gt;AddButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AddButton.Parent" xml:space="preserve">
-    <value>navBar</value>
-  </data>
-  <data name="&gt;&gt;AddButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="navBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="navBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1282, 100</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="navBar.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;navBar.Name" xml:space="preserve">
-    <value>navBar</value>
-  </data>
-  <data name="&gt;&gt;navBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;navBar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;navBar.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="mainPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>500, 100</value>
   </data>
   <data name="mainPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>782, 850</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="mainPanel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -372,6 +279,96 @@
   <data name="&gt;&gt;AddButton.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="navBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="navBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1282, 100</value>
+  </data>
+  <data name="navBar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;navBar.Name" xml:space="preserve">
+    <value>navBar</value>
+  </data>
+  <data name="&gt;&gt;navBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;navBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;navBar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;contactList.Name" xml:space="preserve">
+    <value>contactList</value>
+  </data>
+  <data name="&gt;&gt;contactList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contactList.Parent" xml:space="preserve">
+    <value>sideBar</value>
+  </data>
+  <data name="&gt;&gt;contactList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>sideBar</value>
+  </data>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>sideBar</value>
+  </data>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>sideBar</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="sideBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 100</value>
+  </data>
+  <data name="sideBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>500, 854</value>
+  </data>
+  <data name="sideBar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;sideBar.Name" xml:space="preserve">
+    <value>sideBar</value>
+  </data>
+  <data name="&gt;&gt;sideBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sideBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;sideBar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="contactList.Font" type="System.Drawing.Font, System.Drawing">
     <value>Nirmala UI, 22.2pt</value>
   </data>
@@ -465,27 +462,6 @@
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="sideBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 100</value>
-  </data>
-  <data name="sideBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>500, 854</value>
-  </data>
-  <data name="sideBar.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;sideBar.Name" xml:space="preserve">
-    <value>sideBar</value>
-  </data>
-  <data name="&gt;&gt;sideBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;sideBar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;sideBar.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="contentPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>500, 100</value>
   </data>
@@ -516,14 +492,11 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1282, 953</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Contact Book</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainWindow</value>
+    <value>MainForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

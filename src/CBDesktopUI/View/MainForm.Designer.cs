@@ -37,11 +37,11 @@
             this.EditButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.sideBar = new System.Windows.Forms.Panel();
+            this.contactList = new System.Windows.Forms.ListBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.contentPanel = new System.Windows.Forms.Panel();
-            this.contactList = new System.Windows.Forms.ListBox();
             this.navBar.SuspendLayout();
             this.sideBar.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +93,7 @@
             resources.ApplyResources(this.EditButton, "EditButton");
             this.EditButton.Name = "EditButton";
             this.EditButton.UseVisualStyleBackColor = false;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // AddButton
             // 
@@ -112,6 +113,18 @@
             resources.ApplyResources(this.sideBar, "sideBar");
             this.sideBar.Name = "sideBar";
             // 
+            // contactList
+            // 
+            resources.ApplyResources(this.contactList, "contactList");
+            this.contactList.FormattingEnabled = true;
+            this.contactList.Name = "contactList";
+            this.contactList.SelectedIndexChanged += new System.EventHandler(this.contactList_SelectedIndexChanged);
+            // 
+            // panel4
+            // 
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Name = "panel4";
+            // 
             // panel3
             // 
             resources.ApplyResources(this.panel3, "panel3");
@@ -122,24 +135,13 @@
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
-            // panel4
-            // 
-            resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.Name = "panel4";
-            // 
             // contentPanel
             // 
+            this.contentPanel.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.contentPanel, "contentPanel");
             this.contentPanel.Name = "contentPanel";
             // 
-            // contactList
-            // 
-            resources.ApplyResources(this.contactList, "contactList");
-            this.contactList.FormattingEnabled = true;
-            this.contactList.Name = "contactList";
-            this.contactList.SelectedIndexChanged += new System.EventHandler(this.contactList_SelectedIndexChanged);
-            // 
-            // MainWindow
+            // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,7 +149,7 @@
             this.Controls.Add(this.sideBar);
             this.Controls.Add(this.navBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "MainWindow";
+            this.Name = "MainForm";
             this.navBar.ResumeLayout(false);
             this.sideBar.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -17,6 +17,7 @@ namespace CBDesktopUI.Presenter
             _boxData = boxData;
 
             _view.Contact += (v) => ShowContact(v, null);
+            _view.EditContact += (v, u) => ShowContact(v, u);
             _view.DeleteContact += OnDeleteContact;
             _view.SelectedContact += OnSelectedContact;
 
@@ -41,11 +42,11 @@ namespace CBDesktopUI.Presenter
             _view.ContactsList = _personData.GetContacts();
         }
 
-        private void ShowContact(IContactView contactView, object p)
+        private void ShowContact(IContactView contactView, string contactId)
         {
             var contactPresenter = new ContactPresenter(contactView, _personData, _boxData);
             contactPresenter.MainPresenter = this;
-            contactPresenter.Contact();
+            contactPresenter.Contact(contactId);
         }
 
         public void ShowView()

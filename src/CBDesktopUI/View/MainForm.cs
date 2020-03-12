@@ -9,14 +9,16 @@ namespace CBDesktopUI
 {
     public partial class MainForm : Form, IMainView
     {
+        public event EventHandler DeleteContact;
+        public event EventHandler SelectedContact;
+        public Action<IContactView> Contact { get; set; }
+        public Action<IContactView, string> EditContact { get; set; }
+        public IContactView contactView;
+
         public MainForm()
         {
             InitializeComponent();
         }
-
-        public event EventHandler DeleteContact;
-        public event EventHandler SelectedContact;
-        public Action<IContactView> Contact { get; set; }
 
         public string ContactSelected
         {
@@ -38,8 +40,14 @@ namespace CBDesktopUI
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            IContactView contactView = new ContactForm();
+            contactView = new ContactForm();           
             Contact?.Invoke(contactView);
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            contactView = new ContactForm();
+            EditContact?.Invoke(contactView, ContactSelected);
         }
 
         private void ShowContacts_Click(object sender, EventArgs e)
@@ -51,7 +59,7 @@ namespace CBDesktopUI
         {
             DeleteContact?.Invoke(sender, e);
         }
-                
+
         private void contactList_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedContact?.Invoke(sender, e);
@@ -60,6 +68,6 @@ namespace CBDesktopUI
         public void OpenView()
         {
             Application.Run(this);
-        }
+        } 
     }
 }

@@ -2,6 +2,7 @@
 {
     public class AddressDbModel
     {
+        public int Id { get; set; }
         public int PersonID { get; set; }
         public int AddressTypeID { get; set; }
         public string HomeNumber { get; set; }

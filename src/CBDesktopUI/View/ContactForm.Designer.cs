@@ -235,6 +235,7 @@
             this.phonesTypes.Name = "phonesTypes";
             this.phonesTypes.Size = new System.Drawing.Size(259, 33);
             this.phonesTypes.TabIndex = 6;
+            this.phonesTypes.SelectedIndexChanged += new System.EventHandler(this.phonesTypes_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -332,6 +333,7 @@
             this.addressesTypes.Name = "addressesTypes";
             this.addressesTypes.Size = new System.Drawing.Size(259, 33);
             this.addressesTypes.TabIndex = 7;
+            this.addressesTypes.SelectedIndexChanged += new System.EventHandler(this.addressesTypes_SelectedIndexChanged);
             // 
             // homeNumber
             // 
