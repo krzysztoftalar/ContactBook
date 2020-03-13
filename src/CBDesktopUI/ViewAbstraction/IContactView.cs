@@ -18,6 +18,8 @@ namespace CBDesktopUI.ViewAbstraction
         List<PhoneTypeDbModel> PhoneType { get; set; }
         List<AddressTypeDbModel> AddressType { get; set; }
 
+        void SetVisibilityButttons(bool visible);
+
         int ContactId { get; set; }
         string FirstName { get; set; }
         string LastName { get; set; }

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace CBDesktopUI.Library.Internal.DataAccess
 {
-    public class SqlDataAccess : IDisposable
+    public class SqlDataAccess : IDisposable, ISqlDataAccess
     {
         public string GetConnectionString()
         {
@@ -87,9 +87,9 @@ namespace CBDesktopUI.Library.Internal.DataAccess
                 {
                     CommitTransaction();
                 }
-                catch
+                catch (Exception ex)
                 {
-
+                    throw new Exception("Commit transaction failed in the dispose moethod.", ex);
                 }
             }
 

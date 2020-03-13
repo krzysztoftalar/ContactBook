@@ -389,6 +389,7 @@
             this.AddNewPhone.Size = new System.Drawing.Size(43, 41);
             this.AddNewPhone.TabIndex = 5;
             this.AddNewPhone.UseVisualStyleBackColor = false;
+            this.AddNewPhone.Visible = false;
             this.AddNewPhone.Click += new System.EventHandler(this.AddNewPhone_Click);
             // 
             // SaveButton
@@ -401,6 +402,7 @@
             this.SaveButton.Size = new System.Drawing.Size(76, 63);
             this.SaveButton.TabIndex = 2;
             this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Visible = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // ContactForm
@@ -417,7 +419,7 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ContactForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contact Form";

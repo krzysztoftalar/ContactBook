@@ -32,7 +32,6 @@
             this.navBar = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ShowContacts = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.contentPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.navBar.SuspendLayout();
             this.sideBar.SuspendLayout();
             this.SuspendLayout();
@@ -49,9 +49,9 @@
             // navBar
             // 
             this.navBar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.navBar.Controls.Add(this.label1);
             this.navBar.Controls.Add(this.mainPanel);
             this.navBar.Controls.Add(this.panel1);
-            this.navBar.Controls.Add(this.ShowContacts);
             this.navBar.Controls.Add(this.DeleteButton);
             this.navBar.Controls.Add(this.EditButton);
             this.navBar.Controls.Add(this.AddButton);
@@ -68,14 +68,6 @@
             this.panel1.BackgroundImage = global::CBDesktopUI.Properties.Resources.bookIcon;
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            // 
-            // ShowContacts
-            // 
-            this.ShowContacts.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            resources.ApplyResources(this.ShowContacts, "ShowContacts");
-            this.ShowContacts.Name = "ShowContacts";
-            this.ShowContacts.UseVisualStyleBackColor = false;
-            this.ShowContacts.Click += new System.EventHandler(this.ShowContacts_Click);
             // 
             // DeleteButton
             // 
@@ -141,6 +133,11 @@
             resources.ApplyResources(this.contentPanel, "contentPanel");
             this.contentPanel.Name = "contentPanel";
             // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -151,6 +148,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.navBar.ResumeLayout(false);
+            this.navBar.PerformLayout();
             this.sideBar.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -164,12 +162,12 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Panel sideBar;
         private System.Windows.Forms.Panel mainPanel;
-        private System.Windows.Forms.Button ShowContacts;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel contentPanel;
         private System.Windows.Forms.ListBox contactList;
+        private System.Windows.Forms.Label label1;
     }
 }

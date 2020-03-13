@@ -1,4 +1,5 @@
 ﻿using CBDesktopUI.Library.DataAccess;
+using CBDesktopUI.Library.Internal.DataAccess;
 using CBDesktopUI.Presenter;
 using CBDesktopUI.ViewAbstraction;
 using System;
@@ -17,9 +18,10 @@ namespace CBDesktopUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            ISqlDataAccess sql = new SqlDataAccess();
             IMainView mainView = new MainForm();
-            IPersonData personData = new PersonData();
-            IComboBoxData boxData = new ComboBoxData();
+            IPersonData personData = new PersonData(sql);
+            IComboBoxData boxData = new ComboBoxData(sql);
 
             var mainPresenter = new MainPresenter(mainView, personData, boxData);
             mainPresenter.ShowView();

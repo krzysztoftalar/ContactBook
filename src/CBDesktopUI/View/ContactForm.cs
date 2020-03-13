@@ -18,6 +18,11 @@ namespace CBDesktopUI
         public event EventHandler EditPhone;
         public event EventHandler EditAddress;
 
+        public ContactForm()
+        {
+            InitializeComponent();
+        }
+
         public List<PhoneTypeDbModel> PhoneType
         {
             get => phonesTypes.DataSource as List<PhoneTypeDbModel>;
@@ -41,14 +46,16 @@ namespace CBDesktopUI
             }
         }
 
-        public ContactForm()
+        public void SetVisibilityButttons(bool visible)
         {
-            InitializeComponent();
+            SaveButton.Visible = visible;
+            AddNewPhone.Visible = visible;
+            AddNewAddress.Visible = visible;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (ContactId <= 0)
+            if (ContactId <= 0 && (FirstName.Length > 0 || LastName.Length > 0))
             {
                 CreateContact?.Invoke(sender, e);
             }
@@ -56,6 +63,8 @@ namespace CBDesktopUI
             {
                 EditContact?.Invoke(sender, e);
             }
+
+            CloseView();
         }
 
         private void AddNewPhone_Click(object sender, EventArgs e)
@@ -82,9 +91,14 @@ namespace CBDesktopUI
             }
         }
 
-        public void OpenView()
+        private void phonesTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ShowDialog();
+            PhoneTypeSelected?.Invoke(sender, e);
+        }
+
+        private void addressesTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddressTypeSelected?.Invoke(sender, e);
         }
 
         public int ContactId { get; set; }
@@ -157,14 +171,14 @@ namespace CBDesktopUI
             set { country.Text = value; }
         }
 
-        private void phonesTypes_SelectedIndexChanged(object sender, EventArgs e)
+        public void OpenView()
         {
-            PhoneTypeSelected?.Invoke(sender, e);
+            Show();
         }
 
-        private void addressesTypes_SelectedIndexChanged(object sender, EventArgs e)
+        public void CloseView()
         {
-            AddressTypeSelected?.Invoke(sender, e);
+            Close();
         }
     }
 }

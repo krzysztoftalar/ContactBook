@@ -10,9 +10,9 @@ namespace CBDesktopUI
     public partial class MainForm : Form, IMainView
     {
         public event EventHandler DeleteContact;
-        public event EventHandler SelectedContact;
-        public Action<IContactView> Contact { get; set; }
-        public Action<IContactView, string> EditContact { get; set; }
+        public Action<IContactView, bool> Contact { get; set; }
+        public Action<IContactView, string, bool> EditContact { get; set; }
+
         public IContactView contactView;
 
         public MainForm()
@@ -40,19 +40,14 @@ namespace CBDesktopUI
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            contactView = new ContactForm();           
-            Contact?.Invoke(contactView);
+            contactView = new ContactForm();
+            Contact?.Invoke(contactView, true);
         }
 
         private void EditButton_Click(object sender, EventArgs e)
         {
             contactView = new ContactForm();
-            EditContact?.Invoke(contactView, ContactSelected);
-        }
-
-        private void ShowContacts_Click(object sender, EventArgs e)
-        {
-            contactList.Visible = true;
+            EditContact?.Invoke(contactView, ContactSelected, true);
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -62,12 +57,30 @@ namespace CBDesktopUI
 
         private void contactList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedContact?.Invoke(sender, e);
+            contentPanel.Controls.Clear();
+
+            ContactForm contactForm = new ContactForm()
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true,
+                FormBorderStyle = FormBorderStyle.None
+            };
+
+            contentPanel.Controls.Add(contactForm);
+            contactView = contactForm;
+
+            EditContact?.Invoke(contactView, ContactSelected, false);
         }
 
         public void OpenView()
         {
             Application.Run(this);
-        } 
+        }
+
+        public void CloseView()
+        {
+            Close();
+        }
     }
 }

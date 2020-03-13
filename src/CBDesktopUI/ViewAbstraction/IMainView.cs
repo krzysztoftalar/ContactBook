@@ -6,11 +6,10 @@ namespace CBDesktopUI.ViewAbstraction
 {
     public interface IMainView : IBaseView
     {
-        Action<IContactView> Contact { get; set; }
-        Action<IContactView, string> EditContact { get; set; }
+        Action<IContactView, bool> Contact { get; set; }
+        Action<IContactView, string, bool> EditContact { get; set; }
 
         event EventHandler DeleteContact;
-        event EventHandler SelectedContact;
 
         List<PersonDbModel> ContactsList { get; set; }
         string ContactSelected { get; set; }

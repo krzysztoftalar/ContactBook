@@ -6,30 +6,34 @@ namespace CBDesktopUI.Library.DataAccess
 {
     public class ComboBoxData : IComboBoxData
     {
+        private readonly ISqlDataAccess _sql;
+
+        public ComboBoxData(ISqlDataAccess sql)
+        {
+            _sql = sql;
+        }
+
         public List<PhoneTypeDbModel> PhoneType { get; set; }
         public List<AddressTypeDbModel> AddressType { get; set; }
 
         public (List<PhoneTypeDbModel>, List<AddressTypeDbModel>) LoadComboBox()
         {
-            using (var sql = new SqlDataAccess())
+            try
             {
-                try
-                {
-                    sql.StartTransaction();
+                _sql.StartTransaction();
 
-                    PhoneType = sql.LoadDataInTransaction<PhoneTypeDbModel, dynamic>("spPhoneNumberType_GetAll",
-                       new { });
+                PhoneType = _sql.LoadDataInTransaction<PhoneTypeDbModel, dynamic>("spPhoneNumberType_GetAll",
+                   new { });
 
-                    AddressType = sql.LoadDataInTransaction<AddressTypeDbModel, dynamic>("spAddressType_GetAll",
-                      new { });
+                AddressType = _sql.LoadDataInTransaction<AddressTypeDbModel, dynamic>("spAddressType_GetAll",
+                  new { });
 
-                    sql.CommitTransaction();
-                }
-                catch
-                {
-                    sql.RollbackTransaction();
-                    throw;
-                }
+                _sql.CommitTransaction();
+            }
+            catch
+            {
+                _sql.RollbackTransaction();
+                throw;
             }
 
             return (PhoneType, AddressType);

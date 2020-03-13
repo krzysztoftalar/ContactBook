@@ -99,20 +99,20 @@ namespace CBDesktopUI.Presenter
 
         private void OnAddressTypeSelected(object sender, EventArgs e)
         {
-            //var addressId = ContactDetails.Addresses.se
-
             var address = ContactDetails.Addresses
                  .FirstOrDefault(x => x.AddressTypeID == _view.AddressTypeID) ?? new AddressDbModel();
 
-            _view.AddressId = address.Id ;
+            _view.AddressId = address.Id;
             _view.HomeNumber = address.HomeNumber;
             _view.Street = address.Street;
             _view.City = address.City;
             _view.Country = address.Country;
         }
 
-        public void Contact(string contactId)
+        public void Contact(string contactId, bool isEditMode)
         {
+            _view.SetVisibilityButttons(isEditMode);
+
             if (!string.IsNullOrEmpty(contactId))
             {
                 int.TryParse(contactId, out int id);
