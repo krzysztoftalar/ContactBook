@@ -32,6 +32,8 @@ namespace CBDesktopUI.Presenter
             _view.AddressTypeSelected += OnAddressTypeSelected;
             _view.EditAddress += OnEditAddress;
             _view.EditPhone += OnEditPhone;
+            _view.DeleteAddress += OnDeleteAddress;
+            _view.DeletePhone += OnDeletePhone;
         }
 
         private void OnCreateContact(object sender, EventArgs e)
@@ -88,13 +90,35 @@ namespace CBDesktopUI.Presenter
             ClearTextBox();
         }
 
+        private void OnDeletePhone(object sender, EventArgs e)
+        {
+            _personData.DeletePhone(_view.PhoneId);
+
+            ContactDetails.Phones = ContactDetails.Phones
+              .Where(x => x.Id != _view.PhoneId)
+              .ToList();
+
+            ClearTextBox();
+        }
+
+        private void OnDeleteAddress(object sender, EventArgs e)
+        {
+            _personData.DeleteAddress(_view.AddressId);
+
+            ContactDetails.Addresses = ContactDetails.Addresses
+              .Where(x => x.Id != _view.AddressId)
+              .ToList();
+
+            ClearTextBox();
+        }
+
         private void OnPhoneTypeSelected(object sender, EventArgs e)
         {
-            _view.PhoneNumber = ContactDetails.Phones
-                 .Where(x => x.PhoneNumberTypeID == _view.PhoneNumberTypeID)
-                 .Select(x => x.PhoneNumber)
-                 .DefaultIfEmpty()
-                 .First();
+            var phone = ContactDetails.Phones
+                 .FirstOrDefault(x => x.PhoneNumberTypeID == _view.PhoneNumberTypeID) ?? new PhoneDbModel();
+
+            _view.PhoneId = phone.Id;
+            _view.PhoneNumber = phone.PhoneNumber;
         }
 
         private void OnAddressTypeSelected(object sender, EventArgs e)

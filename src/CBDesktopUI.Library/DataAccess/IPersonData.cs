@@ -10,5 +10,7 @@ namespace CBDesktopUI.Library.DataAccess
         void DeleteContact(int id);
         List<PersonDbModel> GetContacts();
         (PersonDbModel, List<PhoneDbModel>, List<AddressDbModel>) GetContactById(int id);
+        void DeletePhone(int id);
+        void DeleteAddress(int id);
     }
 }

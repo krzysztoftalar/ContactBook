@@ -14,6 +14,8 @@ namespace CBDesktopUI.ViewAbstraction
         event EventHandler EditAddress;
         event EventHandler PhoneTypeSelected;
         event EventHandler AddressTypeSelected;
+        event EventHandler DeletePhone;
+        event EventHandler DeleteAddress;
 
         List<PhoneTypeDbModel> PhoneType { get; set; }
         List<AddressTypeDbModel> AddressType { get; set; }

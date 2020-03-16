@@ -59,6 +59,8 @@
             this.AddNewAddress = new System.Windows.Forms.Button();
             this.AddNewPhone = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.PhoneDelete = new System.Windows.Forms.Button();
+            this.AddressDelete = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -405,11 +407,39 @@
             this.SaveButton.Visible = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // PhoneDelete
+            // 
+            this.PhoneDelete.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PhoneDelete.BackgroundImage = global::CBDesktopUI.Properties.Resources.deleteIcon;
+            this.PhoneDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PhoneDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.PhoneDelete.Location = new System.Drawing.Point(250, 285);
+            this.PhoneDelete.Name = "PhoneDelete";
+            this.PhoneDelete.Size = new System.Drawing.Size(43, 41);
+            this.PhoneDelete.TabIndex = 9;
+            this.PhoneDelete.UseVisualStyleBackColor = false;
+            this.PhoneDelete.Click += new System.EventHandler(this.PhoneDelete_Click);
+            // 
+            // AddressDelete
+            // 
+            this.AddressDelete.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AddressDelete.BackgroundImage = global::CBDesktopUI.Properties.Resources.deleteIcon;
+            this.AddressDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.AddressDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.AddressDelete.Location = new System.Drawing.Point(250, 427);
+            this.AddressDelete.Name = "AddressDelete";
+            this.AddressDelete.Size = new System.Drawing.Size(43, 41);
+            this.AddressDelete.TabIndex = 10;
+            this.AddressDelete.UseVisualStyleBackColor = false;
+            this.AddressDelete.Click += new System.EventHandler(this.AddressDelete_Click);
+            // 
             // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 803);
+            this.Controls.Add(this.AddressDelete);
+            this.Controls.Add(this.PhoneDelete);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.AddNewAddress);
             this.Controls.Add(this.label9);
@@ -467,5 +497,7 @@
         private System.Windows.Forms.TextBox street;
         private System.Windows.Forms.TextBox city;
         private System.Windows.Forms.TextBox country;
+        private System.Windows.Forms.Button PhoneDelete;
+        private System.Windows.Forms.Button AddressDelete;
     }
 }

@@ -134,7 +134,16 @@ namespace CBDesktopUI.Library.DataAccess
                 _sql.RollbackTransaction();
                 throw;
             }
+        }
 
+        public void DeletePhone(int id)
+        {
+            _sql.SaveData("dbo.spPhone_Delete", new { Id = id });
+        }
+
+        public void DeleteAddress(int id)
+        {
+            _sql.SaveData("dbo.spAddress_Delete", new { Id = id });
         }
     }
 }

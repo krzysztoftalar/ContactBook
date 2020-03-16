@@ -17,6 +17,8 @@ namespace CBDesktopUI
         public event EventHandler AddressTypeSelected;
         public event EventHandler EditPhone;
         public event EventHandler EditAddress;
+        public event EventHandler DeletePhone;
+        public event EventHandler DeleteAddress;
 
         public ContactForm()
         {
@@ -51,15 +53,17 @@ namespace CBDesktopUI
             SaveButton.Visible = visible;
             AddNewPhone.Visible = visible;
             AddNewAddress.Visible = visible;
+            PhoneDelete.Visible = visible;
+            AddressDelete.Visible = visible;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (ContactId <= 0 && (FirstName.Length > 0 || LastName.Length > 0))
+            if (ContactId <= 0 && (!string.IsNullOrWhiteSpace(FirstName) || !string.IsNullOrWhiteSpace(LastName)))
             {
                 CreateContact?.Invoke(sender, e);
             }
-            else
+            else if (!string.IsNullOrWhiteSpace(FirstName) || !string.IsNullOrWhiteSpace(LastName))
             {
                 EditContact?.Invoke(sender, e);
             }
@@ -69,11 +73,11 @@ namespace CBDesktopUI
 
         private void AddNewPhone_Click(object sender, EventArgs e)
         {
-            if (ContactId <= 0)
+            if (ContactId <= 0 && !string.IsNullOrWhiteSpace(PhoneNumber))
             {
                 AddPhone?.Invoke(sender, e);
             }
-            else
+            else if (ContactId > 0 && !string.IsNullOrWhiteSpace(PhoneNumber))
             {
                 EditPhone?.Invoke(sender, e);
             }
@@ -81,14 +85,23 @@ namespace CBDesktopUI
 
         private void AddNewAddress_Click(object sender, EventArgs e)
         {
-            if (ContactId <= 0)
+            if (ContactId <= 0 && !string.IsNullOrWhiteSpace(City))
             {
                 AddAddress?.Invoke(sender, e);
             }
-            else
+            else if (ContactId > 0 && !string.IsNullOrWhiteSpace(City))
             {
                 EditAddress?.Invoke(sender, e);
             }
+        }
+        private void AddressDelete_Click(object sender, EventArgs e)
+        {
+            DeleteAddress?.Invoke(sender, e);
+        }
+
+        private void PhoneDelete_Click(object sender, EventArgs e)
+        {
+            DeletePhone?.Invoke(sender, e);
         }
 
         private void phonesTypes_SelectedIndexChanged(object sender, EventArgs e)

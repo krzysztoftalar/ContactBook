@@ -5,5 +5,5 @@ begin
 	set nocount on;
 
 	delete from dbo.[Address]
-	where PersonID = @Id;
+	where PersonID = @Id or Id = @Id;
 end
