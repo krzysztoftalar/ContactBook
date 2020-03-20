@@ -17,7 +17,7 @@ The project implements MVP pattern and transactions with Dapper._
 
 <br/>
 
-<img src="./src/CBDesktopUI/Resources/screen2.png" width="100%">
+<p style="text-align:center;"><img src="./src/CBDesktopUI/Resources/screen2.png" width="60%"></p>
 
 ## Features
 
