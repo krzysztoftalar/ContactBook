@@ -40,7 +40,7 @@ The project implements MVP pattern and transactions with Dapper._
 ### Installation
 
 1. In solution CBData/PublishLocations create `publish.xml` file. Right click on project -> Publish ->
-   Edit -> Browse -> Local -> select MSSQLLocalDB. Enter Database name: CBData and save.
+   Edit -> Browse -> Local -> select MSSQLLocalDB. Enter Database name: CBData. Clik Save Profile AS and select PublishLocations folder. Publish.
 
 2. In solution CBDesktopUI in `App.config` set your database connection string.
 
@@ -50,7 +50,9 @@ The project implements MVP pattern and transactions with Dapper._
   </connectionStrings>
 ```
 
-3. Build and run the solution.
+3. In tables AddressType and PhoneNumberType enter any data.
+
+4. Build and run the solution.
 
 ## License
 
