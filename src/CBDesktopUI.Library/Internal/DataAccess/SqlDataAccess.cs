@@ -27,8 +27,8 @@ namespace CBDesktopUI.Library.Internal.DataAccess
         {
             using (IDbConnection connection = new SqlConnection(GetConnectionString()))
             {
-                List<T> rows = connection
-                    .Query<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure).ToList();
+                List<T> rows = connection.Query<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure)
+                    .ToList();
 
                 return rows;
             }

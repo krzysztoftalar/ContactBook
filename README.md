@@ -50,9 +50,7 @@ The project implements MVP pattern and transactions with Dapper._
   </connectionStrings>
 ```
 
-3. In tables AddressType and PhoneNumberType enter any data.
-
-4. Build and run the solution.
+3. Build and run the solution.
 
 ## License
 

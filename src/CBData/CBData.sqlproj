@@ -82,6 +82,8 @@
     <Build Include="dbo\Stored Procedures\spPerson_Update.sql" />
     <Build Include="dbo\Stored Procedures\spPhone_Update.sql" />
     <Build Include="dbo\Stored Procedures\spAddress_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spPhoneNumberType_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spAddressType_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\CBData.publish.xml" />

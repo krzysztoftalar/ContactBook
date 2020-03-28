@@ -23,6 +23,8 @@ namespace CBDesktopUI
             IPersonData personData = new PersonData(sql);
             IComboBoxData boxData = new ComboBoxData(sql);
 
+            ApplicationSeed.Seed(boxData, sql);
+
             var mainPresenter = new MainPresenter(mainView, personData, boxData);
             mainPresenter.ShowView();
         }

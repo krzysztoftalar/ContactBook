@@ -144,7 +144,7 @@ namespace CBDesktopUI.Library.DataAccess
         public void DeleteAddress(int id)
         {
             _sql.SaveData("dbo.spAddress_Delete", new { Id = id });
-        }
+        }        
     }
 }
 
